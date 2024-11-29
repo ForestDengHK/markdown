@@ -61,74 +61,76 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-gray-50 min-h-screen flex flex-col">
-    <nav class="bg-white shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <a href="/" class="text-2xl font-bold text-gray-900">Markdown Editor</a>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <a href="/" class="text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">
-                        <i class="fas fa-edit mr-1"></i> Editor
-                    </a>
-                    <a href="/help" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
-                        <i class="fas fa-question-circle mr-1"></i> Help
-                    </a>
-                    <a href="/markdown-guide" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
-                        <i class="fas fa-book mr-1"></i> Guide
-                    </a>
-                    <a href="/author" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
-                        <i class="fas fa-user mr-1"></i> Author
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <main class="flex-1 container mx-auto p-6">
-        <div class="mb-4 flex justify-end space-x-2">
-            <button onclick="exportPDF()" class="btn btn-primary">Export PDF</button>
-            <button onclick="exportWord()" class="btn btn-primary">Export Word</button>
-            <button onclick="exportHTML()" class="btn btn-primary">Export HTML</button>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 h-[calc(100vh-14rem)]">
-            <div class="bg-white rounded-lg shadow-sm h-full overflow-hidden">
-                <div class="p-4 border-b border-gray-100">
-                    <h2 class="text-lg font-medium text-gray-900">Editor</h2>
-                </div>
-                <div class="p-4 h-[calc(100%-4rem)]">
-                    <div class="editor-container h-full">
-                        <textarea id="markdown-input"></textarea>
+<body class="bg-gray-50">
+    <div class="min-h-screen flex flex-col">
+        <nav class="bg-white shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center">
+                        <a href="/" class="text-2xl font-bold text-gray-900">Markdown Editor</a>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <a href="/" class="text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">
+                            <i class="fas fa-edit mr-1"></i> Editor
+                        </a>
+                        <a href="/help" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                            <i class="fas fa-question-circle mr-1"></i> Help
+                        </a>
+                        <a href="/markdown-guide" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                            <i class="fas fa-book mr-1"></i> Guide
+                        </a>
+                        <a href="/author" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                            <i class="fas fa-user mr-1"></i> Author
+                        </a>
                     </div>
                 </div>
             </div>
+        </nav>
 
-            <div class="bg-white rounded-lg shadow-sm h-full overflow-hidden">
-                <div class="p-4 border-b border-gray-100">
-                    <h2 class="text-lg font-medium text-gray-900">Preview</h2>
+        <main class="flex-1 container mx-auto p-6">
+            <div class="mb-4 flex justify-end space-x-2">
+                <button onclick="exportPDF()" class="btn btn-primary">Export PDF</button>
+                <button onclick="exportWord()" class="btn btn-primary">Export Word</button>
+                <button onclick="exportHTML()" class="btn btn-primary">Export HTML</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 h-[calc(100vh-14rem)]">
+                <div class="bg-white rounded-lg shadow-sm h-full overflow-hidden">
+                    <div class="p-4 border-b border-gray-100">
+                        <h2 class="text-lg font-medium text-gray-900">Editor</h2>
+                    </div>
+                    <div class="p-4 h-[calc(100%-4rem)]">
+                        <div class="editor-container h-full">
+                            <textarea id="markdown-input"></textarea>
+                        </div>
+                    </div>
                 </div>
-                <div class="p-4 h-[calc(100%-4rem)]">
-                    <div class="preview-container h-full">
-                        <div class="prose max-w-none" id="preview-content"></div>
+
+                <div class="bg-white rounded-lg shadow-sm h-full overflow-hidden">
+                    <div class="p-4 border-b border-gray-100">
+                        <h2 class="text-lg font-medium text-gray-900">Preview</h2>
+                    </div>
+                    <div class="p-4 h-[calc(100%-4rem)]">
+                        <div class="preview-container h-full">
+                            <div class="prose max-w-none" id="preview-content"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </main>
 
-    <footer class="bg-white shadow-sm mt-auto">
-        <div class="container mx-auto px-6 py-3">
-            <div class="flex justify-between items-center text-sm text-gray-600">
-                <div>
-                    Visitors: <span id="visitor-count" class="font-medium">0</span>
+        <footer class="bg-white shadow-sm mt-auto">
+            <div class="container mx-auto px-6 py-3">
+                <div class="flex justify-between items-center text-sm text-gray-600">
+                    <div>
+                        Visitors: <span id="visitor-count" class="font-medium">0</span>
+                    </div>
+                    <div id="recent-visitors"></div>
                 </div>
-                <div id="recent-visitors"></div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
-    <script src="script.js"></script>
+        <script src="script.js"></script>
+    </div>
 </body>
 </html>
