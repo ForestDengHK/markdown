@@ -120,3 +120,5 @@ function updateVisitorCount() {
         })
         .catch(error => console.error('Error fetching visitor count:', error));
 }
+
+
