@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Editor - Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen">
+        <nav class="bg-white shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center">
+                        <a href="/" class="text-2xl font-bold text-gray-900">Markdown Editor</a>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="/" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                            <i class="fas fa-arrow-left mr-1"></i> Back to Editor
+                        </a>
+                        <a href="/help" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                            <i class="fas fa-question-circle mr-1"></i> Help
+                        </a>
+                        <a href="/markdown-guide" class="text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">
+                            <i class="fas fa-book mr-1"></i> Guide
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="bg-white shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-8">Markdown Guide</h2>
+                    
+                    <div class="space-y-8">
+                        <section>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Basic Syntax</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h4 class="font-medium text-gray-900 mb-2">Headers</h4>
+                                    <pre class="text-sm text-gray-600"># Heading 1
+## Heading 2
+### Heading 3</pre>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h4 class="font-medium text-gray-900 mb-2">Emphasis</h4>
+                                    <pre class="text-sm text-gray-600">*italic text*
+**bold text**
+***bold italic text***</pre>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Lists</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h4 class="font-medium text-gray-900 mb-2">Unordered List</h4>
+                                    <pre class="text-sm text-gray-600">- Item 1
+- Item 2
+  - Subitem 2.1
+  - Subitem 2.2</pre>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h4 class="font-medium text-gray-900 mb-2">Ordered List</h4>
+                                    <pre class="text-sm text-gray-600">1. First item
+2. Second item
+3. Third item</pre>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Links and Images</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h4 class="font-medium text-gray-900 mb-2">Links</h4>
+                                    <pre class="text-sm text-gray-600">[Link text](https://example.com)
+[Link with title](https://example.com "title")</pre>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h4 class="font-medium text-gray-900 mb-2">Images</h4>
+                                    <pre class="text-sm text-gray-600">![Alt text](image.jpg)
+![Alt text](image.jpg "Image title")</pre>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Code</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h4 class="font-medium text-gray-900 mb-2">Inline Code</h4>
+                                    <pre class="text-sm text-gray-600">Use `backticks` for inline code</pre>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h4 class="font-medium text-gray-900 mb-2">Code Blocks</h4>
+                                    <pre class="text-sm text-gray-600">```python
+def hello():
+    print("Hello, World!")
+```</pre>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Tables</h3>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <pre class="text-sm text-gray-600">| Header 1 | Header 2 |
+|----------|-----------|
+| Cell 1   | Cell 2    |
+| Cell 3   | Cell 4    |</pre>
+                            </div>
+                        </section>
+
+                        <section>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Blockquotes</h3>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <pre class="text-sm text-gray-600">> This is a blockquote
+>> Nested blockquote</pre>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Editor - Help</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen">
+        <nav class="bg-white shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center">
+                        <a href="/" class="text-2xl font-bold text-gray-900">Markdown Editor</a>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="/" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                            <i class="fas fa-arrow-left mr-1"></i> Back to Editor
+                        </a>
+                        <a href="/help" class="text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">
+                            <i class="fas fa-question-circle mr-1"></i> Help
+                        </a>
+                        <a href="/markdown-guide" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                            <i class="fas fa-book mr-1"></i> Guide
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="bg-white shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-8">Help Center</h2>
+                    
+                    <div class="space-y-8">
+                        <section>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Getting Started</h3>
+                            <p class="text-gray-600 mb-4">
+                                Welcome to the Markdown Editor! This editor allows you to write Markdown text and see the formatted preview in real-time.
+                            </p>
+                        </section>
+
+                        <section>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Basic Usage</h3>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                                <li>Type your Markdown text in the left editor panel</li>
+                                <li>See the formatted result instantly in the right preview panel</li>
+                                <li>Use the export buttons to save your document in different formats</li>
+                            </ul>
+                        </section>
+
+                        <section>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Export Options</h3>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                                <li><strong>PDF Export:</strong> Creates a PDF document with your formatted text</li>
+                                <li><strong>Word Export:</strong> Saves your document in Microsoft Word format</li>
+                                <li><strong>HTML Export:</strong> Exports the raw HTML of your formatted text</li>
+                            </ul>
+                        </section>
+
+                        <section>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Additional Resources</h3>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                                <li>Check out our <a href="/markdown-guide" class="text-indigo-600 hover:text-indigo-800">Markdown Guide</a> for syntax examples</li>
+                                <li>Your content is automatically saved in your browser</li>
+                                <li>The editor supports standard Markdown syntax plus tables and code blocks</li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
