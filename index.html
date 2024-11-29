@@ -14,80 +14,67 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 </head>
-<body class="bg-gray-50">
-    <div class="min-h-screen flex flex-col">
-        <nav class="bg-white shadow-sm">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center h-16">
-                    <div class="flex items-center">
-                        <h1 class="text-2xl font-bold text-gray-900">Markdown Editor</h1>
-                    </div>
-                    <div class="flex space-x-4">
-                        <a href="/" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
-                            Editor
-                        </a>
-                        <a href="/help" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
-                            Help
-                        </a>
-                        <a href="/markdown-guide" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
-                            Guide
-                        </a>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-gray-900">Markdown Editor</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="/help" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                        Help
+                    </a>
+                    <a href="/markdown-guide" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                        Guide
+                    </a>
+                    <div class="text-sm text-gray-500 ml-4">
+                        <span>Visitors: <span id="visitor-count" class="font-medium">0</span></span>
+                        <span class="ml-2" id="recent-visitors"></span>
                     </div>
                 </div>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-        <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div class="mb-4 flex justify-end space-x-2">
-                <button onclick="exportPDF()" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Export PDF
-                </button>
-                <button onclick="exportWord()" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Export Word
-                </button>
-                <button onclick="exportHTML()" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Export HTML
-                </button>
-            </div>
+    <main class="flex-1 container mx-auto px-4 py-6">
+        <div class="mb-4 flex justify-end space-x-2">
+            <button onclick="exportPDF()" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
+                Export PDF
+            </button>
+            <button onclick="exportWord()" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
+                Export Word
+            </button>
+            <button onclick="exportHTML()" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
+                Export HTML
+            </button>
+        </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white rounded-lg shadow">
-                    <div class="p-4 border-b border-gray-200">
-                        <h2 class="text-lg font-medium text-gray-900">Editor</h2>
-                    </div>
-                    <div class="p-4">
-                        <div class="editor-container">
-                            <textarea id="markdown-input"></textarea>
-                        </div>
-                    </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 h-[calc(100vh-12rem)]">
+            <div class="bg-white rounded-lg shadow h-full">
+                <div class="p-4 border-b border-gray-200">
+                    <h2 class="text-lg font-medium text-gray-900">Editor</h2>
                 </div>
-
-                <div class="bg-white rounded-lg shadow">
-                    <div class="p-4 border-b border-gray-200">
-                        <h2 class="text-lg font-medium text-gray-900">Preview</h2>
-                    </div>
-                    <div class="p-4">
-                        <div class="preview-container">
-                            <div class="prose" id="preview-content"></div>
-                        </div>
+                <div class="p-4 h-[calc(100%-4rem)]">
+                    <div class="editor-container h-full">
+                        <textarea id="markdown-input"></textarea>
                     </div>
                 </div>
             </div>
-        </main>
 
-        <footer class="bg-white shadow-sm mt-8">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-                <div class="flex justify-between items-center">
-                    <div class="text-sm text-gray-500">
-                        Total Visitors: <span id="visitor-count" class="font-medium">0</span>
-                    </div>
-                    <div class="text-sm text-gray-500">
-                        <div id="recent-visitors"></div>
+            <div class="bg-white rounded-lg shadow h-full">
+                <div class="p-4 border-b border-gray-200">
+                    <h2 class="text-lg font-medium text-gray-900">Preview</h2>
+                </div>
+                <div class="p-4 h-[calc(100%-4rem)]">
+                    <div class="preview-container h-full">
+                        <div class="prose max-w-none" id="preview-content"></div>
                     </div>
                 </div>
             </div>
-        </footer>
-    </div>
+        </div>
+    </main>
+
     <script src="script.js"></script>
 </body>
 </html>

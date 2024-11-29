@@ -51,12 +51,13 @@ h2 {
 .editor-container {
     position: relative;
     width: 100%;
-    height: 500px;
+    height: 100%;
 }
 
 .preview-container {
-    height: 500px;
+    height: 100%;
     overflow-y: auto;
+    padding-right: 1rem;
 }
 
 .CodeMirror {
@@ -98,20 +99,35 @@ h2 {
 .prose {
     color: #374151;
     max-width: none;
+    height: 100%;
+    overflow-y: auto;
 }
 
 .prose h1 {
-    font-size: 2.25rem;
+    color: #111827;
+    font-weight: 800;
+    font-size: 2.25em;
     margin-top: 0;
     margin-bottom: 0.8888889em;
     line-height: 1.1111111;
 }
 
 .prose h2 {
-    font-size: 1.5rem;
+    color: #111827;
+    font-weight: 700;
+    font-size: 1.5em;
     margin-top: 2em;
     margin-bottom: 1em;
     line-height: 1.3333333;
+}
+
+.prose h3 {
+    color: #111827;
+    font-weight: 600;
+    font-size: 1.25em;
+    margin-top: 1.6em;
+    margin-bottom: 0.6em;
+    line-height: 1.6;
 }
 
 .prose p {
@@ -296,27 +312,6 @@ footer {
 
 .btn-secondary:hover {
     background-color: #E5E7EB;
-}
-
-/* Prose styles for markdown preview */
-.prose h3 {
-    color: #111827;
-    font-weight: 600;
-    font-size: 1.25em;
-    margin-top: 1.6em;
-    margin-bottom: 0.6em;
-    line-height: 1.6;
-}
-
-.prose a {
-    color: #4F46E5;
-    text-decoration: underline;
-    font-weight: 500;
-}
-
-.prose strong {
-    color: #111827;
-    font-weight: 600;
 }
 
 /* Navigation styles */
