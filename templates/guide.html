@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Guide - Markdown Editor</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="/" class="text-2xl font-bold text-gray-900">Markdown Editor</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-gray-900 mb-8">Markdown Guide</h1>
+        
+        <div class="space-y-8">
+            <section class="bg-white p-6 rounded-lg shadow-sm">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Headers</h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gray-50 p-4 rounded">
+                        <pre class="text-sm text-gray-700"># Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6</pre>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded">
+                        <h1 class="text-2xl font-bold">Heading 1</h1>
+                        <h2 class="text-xl font-bold">Heading 2</h2>
+                        <h3 class="text-lg font-bold">Heading 3</h3>
+                        <h4 class="text-base font-bold">Heading 4</h4>
+                        <h5 class="text-sm font-bold">Heading 5</h5>
+                        <h6 class="text-xs font-bold">Heading 6</h6>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-white p-6 rounded-lg shadow-sm">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Emphasis</h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gray-50 p-4 rounded">
+                        <pre class="text-sm text-gray-700">*italic text*
+_also italic_
+
+**bold text**
+__also bold__
+
+***bold and italic***
+___also bold and italic___
+
+~~strikethrough~~</pre>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded">
+                        <p><em>italic text</em></p>
+                        <p><em>also italic</em></p>
+                        <p><strong>bold text</strong></p>
+                        <p><strong>also bold</strong></p>
+                        <p><strong><em>bold and italic</em></strong></p>
+                        <p><strong><em>also bold and italic</em></strong></p>
+                        <p><del>strikethrough</del></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-white p-6 rounded-lg shadow-sm">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Lists</h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gray-50 p-4 rounded">
+                        <pre class="text-sm text-gray-700">1. Ordered list item 1
+2. Ordered list item 2
+3. Ordered list item 3
+
+- Unordered list item
+* Also unordered
++ Also unordered
+
+- Nested list
+  - Indented item
+    - Further indented</pre>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded">
+                        <ol class="list-decimal list-inside">
+                            <li>Ordered list item 1</li>
+                            <li>Ordered list item 2</li>
+                            <li>Ordered list item 3</li>
+                        </ol>
+                        <ul class="list-disc list-inside mt-4">
+                            <li>Unordered list item</li>
+                            <li>Also unordered</li>
+                            <li>Also unordered</li>
+                        </ul>
+                        <ul class="list-disc list-inside mt-4">
+                            <li>Nested list
+                                <ul class="pl-4">
+                                    <li>Indented item
+                                        <ul class="pl-4">
+                                            <li>Further indented</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-white p-6 rounded-lg shadow-sm">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Links and Images</h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gray-50 p-4 rounded">
+                        <pre class="text-sm text-gray-700">[Link text](https://example.com)
+[Link with title](https://example.com "title")
+
+![Alt text](image.jpg)
+![Alt text](image.jpg "Image title")</pre>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded">
+                        <p><a href="https://example.com" class="text-blue-600 hover:underline">Link text</a></p>
+                        <p><a href="https://example.com" title="title" class="text-blue-600 hover:underline">Link with title</a></p>
+                        <p class="text-gray-600">[Image would display here]</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-white p-6 rounded-lg shadow-sm">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Code</h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gray-50 p-4 rounded">
+                        <pre class="text-sm text-gray-700">`inline code`
+
+```python
+def hello_world():
+    print("Hello, World!")
+```
+
+```javascript
+function hello() {
+    console.log("Hello!");
+}
+```</pre>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded">
+                        <p><code class="bg-gray-100 px-1 rounded">inline code</code></p>
+                        <pre class="bg-gray-800 text-white p-2 rounded mt-2"><code>def hello_world():
+    print("Hello, World!")</code></pre>
+                        <pre class="bg-gray-800 text-white p-2 rounded mt-2"><code>function hello() {
+    console.log("Hello!");
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-white p-6 rounded-lg shadow-sm">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Blockquotes</h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gray-50 p-4 rounded">
+                        <pre class="text-sm text-gray-700">> Single blockquote
+
+> Nested blockquote
+>> Second level
+>>> Third level</pre>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded">
+                        <blockquote class="border-l-4 border-gray-300 pl-4 italic">
+                            Single blockquote
+                        </blockquote>
+                        <blockquote class="border-l-4 border-gray-300 pl-4 italic mt-4">
+                            Nested blockquote
+                            <blockquote class="border-l-4 border-gray-300 pl-4 mt-2">
+                                Second level
+                                <blockquote class="border-l-4 border-gray-300 pl-4 mt-2">
+                                    Third level
+                                </blockquote>
+                            </blockquote>
+                        </blockquote>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-white p-6 rounded-lg shadow-sm">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Tables</h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gray-50 p-4 rounded">
+                        <pre class="text-sm text-gray-700">| Header 1 | Header 2 |
+|----------|-----------|
+| Cell 1   | Cell 2    |
+| Cell 3   | Cell 4    |
+
+| Left     | Center    | Right    |
+|:---------|:---------:|----------:|
+| Left     | Center    | Right    |</pre>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead>
+                                <tr>
+                                    <th class="px-6 py-3 bg-gray-100">Header 1</th>
+                                    <th class="px-6 py-3 bg-gray-100">Header 2</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="px-6 py-4">Cell 1</td>
+                                    <td class="px-6 py-4">Cell 2</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4">Cell 3</td>
+                                    <td class="px-6 py-4">Cell 4</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-white p-6 rounded-lg shadow-sm">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Task Lists</h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gray-50 p-4 rounded">
+                        <pre class="text-sm text-gray-700">- [x] Completed task
+- [ ] Incomplete task
+- [x] Another completed task
+  - [ ] Nested task</pre>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded">
+                        <ul class="list-none">
+                            <li>
+                                <input type="checkbox" checked disabled class="mr-2">
+                                Completed task
+                            </li>
+                            <li>
+                                <input type="checkbox" disabled class="mr-2">
+                                Incomplete task
+                            </li>
+                            <li>
+                                <input type="checkbox" checked disabled class="mr-2">
+                                Another completed task
+                                <ul class="pl-6">
+                                    <li>
+                                        <input type="checkbox" disabled class="mr-2">
+                                        Nested task
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

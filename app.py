@@ -1,4 +1,4 @@
-from flask import Flask, send_from_directory, request, jsonify
+from flask import Flask, send_from_directory, request, jsonify, render_template
 import redis
 import os
 from datetime import datetime
@@ -34,7 +34,7 @@ def help_page():
 
 @app.route('/markdown-guide')
 def markdown_guide():
-    return send_from_directory('.', 'markdown-guide.html')
+    return render_template('guide.html')
 
 @app.route('/visitors')
 def get_visitors():

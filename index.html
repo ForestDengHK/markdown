@@ -22,37 +22,23 @@
                     <h1 class="text-2xl font-bold text-gray-900">Markdown Editor</h1>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <a href="/help" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
-                        Help
-                    </a>
-                    <a href="/markdown-guide" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
-                        Guide
-                    </a>
-                    <div class="text-sm text-gray-500 ml-4">
-                        <span>Visitors: <span id="visitor-count" class="font-medium">0</span></span>
-                        <span class="ml-2" id="recent-visitors"></span>
-                    </div>
+                    <a href="/help" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Help</a>
+                    <a href="/markdown-guide" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Guide</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <main class="flex-1 container mx-auto px-4 py-6">
+    <main class="flex-1 container mx-auto p-6">
         <div class="mb-4 flex justify-end space-x-2">
-            <button onclick="exportPDF()" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
-                Export PDF
-            </button>
-            <button onclick="exportWord()" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
-                Export Word
-            </button>
-            <button onclick="exportHTML()" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
-                Export HTML
-            </button>
+            <button onclick="exportPDF()" class="btn btn-primary">Export PDF</button>
+            <button onclick="exportWord()" class="btn btn-primary">Export Word</button>
+            <button onclick="exportHTML()" class="btn btn-primary">Export HTML</button>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 h-[calc(100vh-12rem)]">
-            <div class="bg-white rounded-lg shadow h-full">
-                <div class="p-4 border-b border-gray-200">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 h-[calc(100vh-14rem)]">
+            <div class="bg-white rounded-lg shadow-sm h-full overflow-hidden">
+                <div class="p-4 border-b border-gray-100">
                     <h2 class="text-lg font-medium text-gray-900">Editor</h2>
                 </div>
                 <div class="p-4 h-[calc(100%-4rem)]">
@@ -62,8 +48,8 @@
                 </div>
             </div>
 
-            <div class="bg-white rounded-lg shadow h-full">
-                <div class="p-4 border-b border-gray-200">
+            <div class="bg-white rounded-lg shadow-sm h-full overflow-hidden">
+                <div class="p-4 border-b border-gray-100">
                     <h2 class="text-lg font-medium text-gray-900">Preview</h2>
                 </div>
                 <div class="p-4 h-[calc(100%-4rem)]">
@@ -74,6 +60,17 @@
             </div>
         </div>
     </main>
+
+    <footer class="bg-white shadow-sm mt-auto">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center text-sm text-gray-600">
+                <div>
+                    Visitors: <span id="visitor-count" class="font-medium">0</span>
+                </div>
+                <div id="recent-visitors"></div>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
