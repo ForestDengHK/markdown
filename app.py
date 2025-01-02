@@ -54,6 +54,13 @@ def track_visit():
         today = datetime.now().strftime('%Y-%m-%d')
         redis_client.sadd(f'unique_visitors:{today}', ip)
         
+        # Track all-time unique visitors
+        redis_client.sadd('all_unique_visitors', ip)
+        
+        # Update IP visit count and last visit time
+        redis_client.incr(f'ip_visits:{ip}')
+        redis_client.set(f'last_visit:{ip}', timestamp)
+        
         # Track page views
         redis_client.hincrby('page_views', path, 1)
     except Exception as e:
@@ -94,6 +101,25 @@ def admin_stats():
         today = datetime.now().strftime('%Y-%m-%d')
         unique_visitors_today = redis_client.scard(f'unique_visitors:{today}')
         
+        # Get all-time unique visitors
+        all_unique_visitors = redis_client.scard('all_unique_visitors')
+        
+        # Get all distinct IPs
+        distinct_ips = list(redis_client.smembers('all_unique_visitors'))
+        ip_details = []
+        for ip in distinct_ips:
+            ip_str = ip.decode('utf-8')
+            last_visit = redis_client.get(f'last_visit:{ip_str}')
+            visit_count = redis_client.get(f'ip_visits:{ip_str}')
+            ip_details.append({
+                'ip': ip_str,
+                'last_visit': last_visit.decode('utf-8') if last_visit else 'Unknown',
+                'visit_count': int(visit_count.decode('utf-8')) if visit_count else 1
+            })
+        
+        # Sort IP details by visit count (descending)
+        ip_details.sort(key=lambda x: x['visit_count'], reverse=True)
+        
         # Get page views
         page_views = redis_client.hgetall('page_views')
         
@@ -103,6 +129,8 @@ def admin_stats():
         return jsonify({
             'total_visits': total_visits,
             'unique_visitors_today': unique_visitors_today,
+            'total_unique_visitors': all_unique_visitors,
+            'distinct_ips': ip_details,
             'page_views': {k.decode(): int(v) for k, v in page_views.items()},
             'recent_visits': [eval(v.decode()) for v in recent_visits]
         })
