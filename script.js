@@ -8,6 +8,7 @@ marked.setOptions({
 
 // Initialize CodeMirror
 let editor;
+let isEditorReady = false;
 
 // Default content
 let defaultContent = `# Welcome to the Markdown Editor!
@@ -34,15 +35,27 @@ def hello_world():
 
 | Feature | Status |
 |---------|--------|
-| Editor  | 
-| Preview | 
-| Export  | 
+| Editor  | ✓      |
+| Preview | ✓      |
+| Export  | ✓      |
 
 > Try editing this content to see the live preview!
 `;
 
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize CodeMirror with a small delay to ensure resources are loaded
+    setTimeout(() => {
+        initializeEditor();
+    }, 100);
+});
+
+function initializeEditor() {
+    if (!document.getElementById('markdown-input')) {
+        console.error('Editor element not found');
+        return;
+    }
+
     // Initialize CodeMirror
     editor = CodeMirror.fromTextArea(document.getElementById('markdown-input'), {
         mode: 'markdown',
@@ -58,18 +71,29 @@ document.addEventListener('DOMContentLoaded', function() {
     // Set default content
     editor.setValue(defaultContent);
 
+    // Setup scroll synchronization
+    setupScrollSync();
+
     // Update preview on change
     editor.on('change', function() {
         updatePreview();
     });
 
-    // Sync scrolling
+    // Initial preview update
+    updatePreview();
+
+    isEditorReady = true;
+}
+
+function setupScrollSync() {
+    const previewContent = document.getElementById('preview-content');
+    if (!previewContent) return;
+
     let isEditorScrolling = false;
     let isPreviewScrolling = false;
-    const previewContent = document.getElementById('preview-content');
-    
+
     editor.on('scroll', function() {
-        if (isPreviewScrolling) return;
+        if (!isEditorReady || isPreviewScrolling) return;
         isEditorScrolling = true;
         
         const editorInfo = editor.getScrollInfo();
@@ -81,9 +105,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         setTimeout(() => { isEditorScrolling = false; }, 50);
     });
-    
+
     previewContent.addEventListener('scroll', function() {
-        if (isEditorScrolling) return;
+        if (!isEditorReady || isEditorScrolling) return;
         isPreviewScrolling = true;
         
         const previewHeight = this.scrollHeight - this.clientHeight;
@@ -95,14 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         setTimeout(() => { isPreviewScrolling = false; }, 50);
     });
-
-    // Initial preview update
-    updatePreview();
-
-    // Start visitor tracking
-    updateVisitorCount();
-    setInterval(updateVisitorCount, 60000); // Update every minute
-});
+}
 
 // Force refresh when window is resized
 window.addEventListener('resize', () => {
