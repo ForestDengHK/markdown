@@ -72,7 +72,7 @@ def help_page():
 @app.route('/markdown-guide')
 def markdown_guide():
     track_visit()
-    return render_template('guide.html')
+    return send_from_directory('.', 'markdown-guide.html')
 
 @app.route('/author')
 def author_page():

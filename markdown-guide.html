@@ -3,13 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Markdown Editor - Guide</title>
+    <title>Markdown Guide - Comprehensive Markdown Syntax Reference</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Markdown Guide - Comprehensive Markdown Syntax Reference">
+    <meta name="description" content="Complete guide to Markdown syntax. Learn how to format text, create headers, lists, links, and more with our easy-to-follow Markdown reference guide.">
+    <meta name="keywords" content="markdown guide, markdown syntax, markdown reference, markdown formatting, markdown tutorial, markdown cheatsheet">
+    <meta name="author" content="Forest Deng">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://your-domain.com/markdown-guide">
+    <meta property="og:title" content="Markdown Guide - Comprehensive Markdown Syntax Reference">
+    <meta property="og:description" content="Complete guide to Markdown syntax. Learn how to format text, create headers, lists, links, and more with our easy-to-follow Markdown reference guide.">
+    <meta property="og:image" content="https://your-domain.com/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://your-domain.com/markdown-guide">
+    <meta property="twitter:title" content="Markdown Guide - Comprehensive Markdown Syntax Reference">
+    <meta property="twitter:description" content="Complete guide to Markdown syntax. Learn how to format text, create headers, lists, links, and more with our easy-to-follow Markdown reference guide.">
+    <meta property="twitter:image" content="https://your-domain.com/twitter-image.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://your-domain.com/markdown-guide">
+    
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Markdown Guide - Comprehensive Markdown Syntax Reference",
+      "description": "Complete guide to Markdown syntax. Learn how to format text, create headers, lists, links, and more.",
+      "author": {
+        "@type": "Person",
+        "name": "Forest Deng"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Markdown Editor",
+        "url": "https://your-domain.com"
+      },
+      "url": "https://your-domain.com/markdown-guide",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://your-domain.com/markdown-guide"
+      },
+      "datePublished": "2024-01-02",
+      "dateModified": "2024-01-02"
+    }
+    </script>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-gray-50">
-    <div class="min-h-screen flex flex-col">
+    <div class="min-h-screen">
         <nav class="bg-white shadow-sm">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-16">
@@ -23,10 +76,10 @@
                         <a href="/help" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
                             <i class="fas fa-question-circle mr-1"></i> Help
                         </a>
-                        <a href="/markdown-guide" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                        <a href="/markdown-guide" class="text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">
                             <i class="fas fa-book mr-1"></i> Guide
                         </a>
-                        <a href="/author" class="text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">
+                        <a href="/author" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
                             <i class="fas fa-user mr-1"></i> Author
                         </a>
                     </div>
@@ -34,104 +87,95 @@
             </div>
         </nav>
     
-        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1">
-            <div class="bg-white shadow rounded-lg">
-                <div class="px-4 py-5 sm:p-6">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-8">Markdown Guide</h2>
-                    
-                    <div class="space-y-8">
-                        <section>
-                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Basic Syntax</h3>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h4 class="font-medium text-gray-900 mb-2">Headers</h4>
-                                    <pre class="text-sm text-gray-600"># Heading 1
-## Heading 2
-### Heading 3</pre>
-                                </div>
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h4 class="font-medium text-gray-900 mb-2">Emphasis</h4>
-                                    <pre class="text-sm text-gray-600">*italic text*
-**bold text**
-***bold italic text***</pre>
-                                </div>
+        <main class="max-w-4xl mx-auto px-4 py-6">
+            <div class="bg-white shadow rounded-lg p-6">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Markdown Guide</h2>
+                
+                <div class="space-y-4">
+                    <section class="guide-section">
+                        <h3 class="text-lg font-semibold text-gray-900">Basic Syntax</h3>
+                        <div class="guide-grid">
+                            <div class="guide-example bg-gray-50 rounded-lg">
+                                <h4 class="font-medium text-gray-900">Headers</h4>
+                                <pre class="text-sm text-gray-600"># Heading 1
+## Heading 2</pre>
                             </div>
-                        </section>
-
-                        <section>
-                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Lists</h3>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h4 class="font-medium text-gray-900 mb-2">Unordered List</h4>
-                                    <pre class="text-sm text-gray-600">- Item 1
-- Item 2
-  - Subitem 2.1
-  - Subitem 2.2</pre>
-                                </div>
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h4 class="font-medium text-gray-900 mb-2">Ordered List</h4>
-                                    <pre class="text-sm text-gray-600">1. First item
-2. Second item
-3. Third item</pre>
-                                </div>
-                            </div>
-                        </section>
-
-                        <section>
-                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Links and Images</h3>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h4 class="font-medium text-gray-900 mb-2">Links</h4>
-                                    <pre class="text-sm text-gray-600">[Link text](https://example.com)
-[Link with title](https://example.com "title")</pre>
-                                </div>
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h4 class="font-medium text-gray-900 mb-2">Images</h4>
-                                    <pre class="text-sm text-gray-600">![Alt text](image.jpg)
-![Alt text](image.jpg "Image title")</pre>
-                                </div>
-                            </div>
-                        </section>
-
-                        <section>
-                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Code</h3>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h4 class="font-medium text-gray-900 mb-2">Inline Code</h4>
-                                    <pre class="text-sm text-gray-600">Use `backticks` for inline code</pre>
-                                </div>
-                                <div class="bg-gray-50 p-4 rounded-lg">
-                                    <h4 class="font-medium text-gray-900 mb-2">Code Blocks</h4>
-                                    <pre class="text-sm text-gray-600">```python
-def hello():
-    print("Hello, World!")
-```</pre>
-                                </div>
-                            </div>
-                        </section>
-
-                        <section>
-                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Tables</h3>
-                            <div class="bg-gray-50 p-4 rounded-lg">
-                                <pre class="text-sm text-gray-600">| Header 1 | Header 2 |
-|----------|-----------|
-| Cell 1   | Cell 2    |
-| Cell 3   | Cell 4    |</pre>
+                            <div class="guide-example bg-gray-50 rounded-lg">
+                                <h4 class="font-medium text-gray-900">Emphasis</h4>
+                                <pre class="text-sm text-gray-600">*italic* or _italic_
+**bold** or __bold__</pre>
                             </div>
                         </div>
                     </section>
 
-                    <section>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Blockquotes</h3>
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <pre class="text-sm text-gray-600">> This is a blockquote
->> Nested blockquote</pre>
+                    <section class="guide-section">
+                        <h3 class="text-lg font-semibold text-gray-900">Lists</h3>
+                        <div class="guide-grid">
+                            <div class="guide-example bg-gray-50 rounded-lg">
+                                <h4 class="font-medium text-gray-900">Unordered</h4>
+                                <pre class="text-sm text-gray-600">- Item 1
+- Item 2
+  - Sub item</pre>
+                            </div>
+                            <div class="guide-example bg-gray-50 rounded-lg">
+                                <h4 class="font-medium text-gray-900">Ordered</h4>
+                                <pre class="text-sm text-gray-600">1. First item
+2. Second item</pre>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="guide-section">
+                        <h3 class="text-lg font-semibold text-gray-900">Links & Images</h3>
+                        <div class="guide-grid">
+                            <div class="guide-example bg-gray-50 rounded-lg">
+                                <h4 class="font-medium text-gray-900">Links</h4>
+                                <pre class="text-sm text-gray-600">[Link text](url)
+[Link](url "title")</pre>
+                            </div>
+                            <div class="guide-example bg-gray-50 rounded-lg">
+                                <h4 class="font-medium text-gray-900">Images</h4>
+                                <pre class="text-sm text-gray-600">![Alt text](url)
+![Alt](url "title")</pre>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="guide-section">
+                        <h3 class="text-lg font-semibold text-gray-900">Code</h3>
+                        <div class="guide-grid">
+                            <div class="guide-example bg-gray-50 rounded-lg">
+                                <h4 class="font-medium text-gray-900">Inline Code</h4>
+                                <pre class="text-sm text-gray-600">`code here`</pre>
+                            </div>
+                            <div class="guide-example bg-gray-50 rounded-lg">
+                                <h4 class="font-medium text-gray-900">Code Block</h4>
+                                <pre class="text-sm text-gray-600">```language
+code block
+```</pre>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="guide-section">
+                        <h3 class="text-lg font-semibold text-gray-900">Tables & Quotes</h3>
+                        <div class="guide-grid">
+                            <div class="guide-example bg-gray-50 rounded-lg">
+                                <h4 class="font-medium text-gray-900">Table</h4>
+                                <pre class="text-sm text-gray-600">| A | B |
+|---|---|
+| 1 | 2 |</pre>
+                            </div>
+                            <div class="guide-example bg-gray-50 rounded-lg">
+                                <h4 class="font-medium text-gray-900">Blockquote</h4>
+                                <pre class="text-sm text-gray-600">> Quote text
+>> Nested quote</pre>
+                            </div>
                         </div>
                     </section>
                 </div>
             </div>
-        </div>
-    </main>
-</div>
+        </main>
+    </div>
 </body>
 </html>

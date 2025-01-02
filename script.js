@@ -48,9 +48,11 @@ document.addEventListener('DOMContentLoaded', function() {
         mode: 'markdown',
         theme: 'neat',
         lineWrapping: true,
+        viewportMargin: Infinity,
         lineNumbers: true,
         autofocus: true,
-        extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}
+        extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"},
+        scrollbarStyle: "native"
     });
 
     // Set default content
@@ -61,12 +63,50 @@ document.addEventListener('DOMContentLoaded', function() {
         updatePreview();
     });
 
+    // Sync scrolling
+    let isEditorScrolling = false;
+    let isPreviewScrolling = false;
+    const previewContent = document.getElementById('preview-content');
+    
+    editor.on('scroll', function() {
+        if (isPreviewScrolling) return;
+        isEditorScrolling = true;
+        
+        const editorInfo = editor.getScrollInfo();
+        const editorHeight = editorInfo.height - editorInfo.clientHeight;
+        const scrollRatio = editorInfo.top / editorHeight;
+        
+        const previewHeight = previewContent.scrollHeight - previewContent.clientHeight;
+        previewContent.scrollTop = scrollRatio * previewHeight;
+        
+        setTimeout(() => { isEditorScrolling = false; }, 50);
+    });
+    
+    previewContent.addEventListener('scroll', function() {
+        if (isEditorScrolling) return;
+        isPreviewScrolling = true;
+        
+        const previewHeight = this.scrollHeight - this.clientHeight;
+        const scrollRatio = this.scrollTop / previewHeight;
+        
+        const editorInfo = editor.getScrollInfo();
+        const editorHeight = editorInfo.height - editorInfo.clientHeight;
+        editor.scrollTo(null, scrollRatio * editorHeight);
+        
+        setTimeout(() => { isPreviewScrolling = false; }, 50);
+    });
+
     // Initial preview update
     updatePreview();
 
     // Start visitor tracking
     updateVisitorCount();
     setInterval(updateVisitorCount, 60000); // Update every minute
+});
+
+// Force refresh when window is resized
+window.addEventListener('resize', () => {
+    editor.refresh();
 });
 
 // Update preview when editor content changes
