@@ -166,6 +166,7 @@ function exportHTML() {
     saveAs(blob, 'document.html');
 }
 
+/* Visitor tracking functionality - commented out but preserved
 // Fetch and update visitor statistics
 function updateVisitorCount() {
     fetch('/visitors')
@@ -177,5 +178,6 @@ function updateVisitorCount() {
         })
         .catch(error => console.error('Error fetching visitor count:', error));
 }
+*/
 
 
