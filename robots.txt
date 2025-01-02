@@ -4,7 +4,7 @@ Allow: /help
 Allow: /markdown-guide
 Allow: /author
 
-Sitemap: https://your-domain.com/sitemap.xml
+Sitemap: https://mdexport.vercel.app/sitemap.xml
 
 # Prevent access to admin areas
 Disallow: /admin/
