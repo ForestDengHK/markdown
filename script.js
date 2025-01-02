@@ -166,7 +166,7 @@ function exportHTML() {
     saveAs(blob, 'document.html');
 }
 
-/* Visitor tracking functionality - commented out but preserved
+/* Visitor tracking functionality removed but kept for potential future use
 // Fetch and update visitor statistics
 function updateVisitorCount() {
     fetch('/visitors')
